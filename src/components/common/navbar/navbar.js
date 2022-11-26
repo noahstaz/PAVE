@@ -1,24 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Home = () =>
+const Home = () => (
   <React.Fragment>
     <div>
       <ul>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to='/service'>Service</Link>
+          <Link to="/service">Service</Link>
         </li>
         <li>
-          <Link to='/team'>Team</Link>
+          <Link to="/team">Team</Link>
+        </li>
+        <li>
+          <Link to="/profile">Profile</Link>
         </li>
       </ul>
     </div>
-  </React.Fragment>;
+  </React.Fragment>
+);
 
 export default Home;
