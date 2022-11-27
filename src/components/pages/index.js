@@ -3,5 +3,8 @@ import Home from "./home";
 import Service from "./service";
 import Team from "./team";
 import Profile from "./profile";
+import SignInForm from "./login/SignInForm";
+import SignUpForm from "./login/SignUpForm";
+// import Login from "./login/login";
 
-export { Home, About, Service, Team, Profile };
+export { Home, About, Service, Team, Profile, SignInForm, SignUpForm};
