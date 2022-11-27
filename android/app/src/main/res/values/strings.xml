@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pave</string>
+    <string name="hyperlink"><a href="http://pave-p2p.tech/"> Website </a></string>
 </resources>
