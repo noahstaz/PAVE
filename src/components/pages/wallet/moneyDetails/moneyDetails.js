@@ -18,6 +18,7 @@ const MoneyDetails = props => {
   const {incomeAmount, expensesAmount} = props
   const handleDeposit = () =>{
 
+  }
   return (
     <div className="money-details-container">
       <div className="balance-container">
@@ -29,7 +30,7 @@ const MoneyDetails = props => {
         <div>
           <p className="details-text">Your Balance</p>
           <p className="details-money" testid="balanceAmount">
-            Rs {balanceAmount}
+            ${balanceAmount}
           </p>
           <Example > </Example>
         </div>
@@ -41,9 +42,9 @@ const MoneyDetails = props => {
           className="details-img"
         />
         <div>
-          <p className="details-text">Your Income</p>
+          <p className="details-text">Credit limit</p>
           <p className="details-money" testid="incomeAmount">
-            Rs {incomeAmount}
+            ${incomeAmount}
           </p>
           <Example2> </Example2>
         </div>
@@ -65,6 +66,6 @@ const MoneyDetails = props => {
       </div>
     </div>
   )
-}}
+}
 
 export default MoneyDetails

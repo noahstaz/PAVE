@@ -6,6 +6,8 @@ import { Button } from 'antd';
 import Example4 from './moneyDetails/modal copy 3';
 import NavBar from '../../common/navbar';
 import { Navbar } from 'react-bootstrap';
+import getMoneyDetails from '../../../routes/api/moneyDetail';
+
 const transactionTypeOptions = [
   {
     optionId: 'INCOME',
@@ -84,6 +86,7 @@ class MoneyManager extends Component {
   }
 
   getIncome = () => {
+    
     const {transactionsList} = this.state
     let incomeAmount = 0
     transactionsList.forEach(eachTransaction => {
@@ -107,7 +110,7 @@ class MoneyManager extends Component {
   }
   render() {
     const {titleInput, amountInput, optionId, transactionsList} = this.state
-    const balanceAmount = this.getBalance()
+    const balanceAmount = getMoneyDetails()[1].balance;
     const incomeAmount = this.getIncome()
     const expensesAmount = this.getExpenses()
     this.setBalance()
@@ -118,9 +121,9 @@ class MoneyManager extends Component {
         <NavBar />
         <div className="responsive-container">
           <div className="header-container">
-            <p className="header-content">
-              <h1> Welcome back to your Money Manager</h1> 
-            </p>
+            <h1 className="header-content">
+              Welcome to your wallet
+            </h1>
           </div>
           <MoneyDetails
             incomeAmount={incomeAmount}
@@ -141,13 +144,13 @@ class MoneyManager extends Component {
       </div>
           <div className="transaction-details">
             <div className="history-transactions">
-              <h1 className="transaction-header">History</h1>
+              <h1 className="transaction-header">Transaction history</h1>
               <div className="transactions-table-container">
                 <ul className="transactions-table">
-                  <li className="table-header">
-                    <p className="table-header-cell">Title</p>
-                    <p className="table-header-cell">Amount</p>
-                    <p className="table-header-cell">Type</p>
+                  <li className="table-header-title">
+                    <p className="table-header-cell-title">Title</p>
+                    <p className="table-header-cell-title">Amount</p>
+                    <p className="table-header-cell-title">Type</p>
                   </li>
                   <li className="table-header">
                     <p className="table-header-cell">ToFTX</p>

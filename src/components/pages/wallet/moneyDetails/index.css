@@ -19,9 +19,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ecfccb;
+  background-color: white;
   width: 100%;
-  border: 1px solid #84cc16;
   border-radius: 16px;
   margin-bottom: 16px;
 }
@@ -86,9 +85,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #cffafe;
+  background-color: white;
   width: 100%;
-  border: 1px solid #06b6d4;
   border-radius: 16px;
   margin-bottom: 16px;
 }
@@ -104,10 +102,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ede9fe;
+  background-color: white;
   width: 100%;
   min-width: 200px;
-  border: 1px solid #7c3aed;
   border-radius: 16px;
   margin-bottom: 16px;
 }
@@ -117,4 +114,24 @@
     width: 30%;
     margin-right: 0px;
   }
+}
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }
