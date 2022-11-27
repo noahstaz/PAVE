@@ -76,8 +76,8 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="108dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/dark"
         android:text="Account"
         android:textColor="@color/white"
@@ -102,21 +102,22 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar5"
         app:layout_constraintVertical_bias="0.003" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextDate"
-        android:layout_width="306dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
         android:text="Transaction History"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
