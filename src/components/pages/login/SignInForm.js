@@ -1,3 +1,4 @@
+import { message, notification } from "antd";
 import React, {useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import {
@@ -13,10 +14,14 @@ function SignInForm() {
   function handleChange(event) {
     setEmail(event.target.value);
   }
-
   function handleSubmit(event) {
     event.preventDefault();
+    localStorage.setItem('showLogin',true);
     console.log("The form was submitted with the following data:");
+    notification.info({
+      message: `Logged in!`,
+      duration: 1
+    });
     history.push('/');
   }
 

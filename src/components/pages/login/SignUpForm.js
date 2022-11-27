@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./App.css";
+import { message } from "antd";
+
 class SignUpForm extends Component {
   constructor() {
     super();
 
     this.state = {
+      redirect:false,
       userName:"",
       email: "",
       password: "",
@@ -32,11 +35,14 @@ class SignUpForm extends Component {
       userName:this.state.userName,
       name:this.state.name,
       email:this.state.email,
-      password:this.state.password
+      password:this.state.password,
+      show: false
     }
     localStorage.setItem("newUser", JSON.stringify(person));
     console.log("The form was submitted with the following data:");
     console.log(localStorage.getItem("newUser"));
+    message.success("Registered!");
+    this.setState({redirect:true})
   }
 
   render() {
@@ -122,12 +128,17 @@ class SignUpForm extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton">Sign Up</button>{" "}
-            <Link to="/sign-in" className="formFieldLink">
+              <button className="formFieldButton">            
+              hello
+
+              </button>{" "}
+            <Link to="/signin" className="formFieldLink">
               I'm already member
             </Link>
           </div>
         </form>
+        {this.state.redirect && <><Redirect to='/signin'/> </>}
+        
       </div>
           </div>
 
