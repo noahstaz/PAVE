@@ -32,8 +32,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:textSize="20dp"
         android:text="Username: user"
         android:textColor="@color/white"
+        android:fontFamily="sans-serif-thin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.539"
@@ -43,11 +45,13 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="188dp"
-        android:layout_height="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-thin"
         android:text="Membership Date: Nov 28, 2022"
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.573"
@@ -57,9 +61,11 @@
 
     <TextView
         android:id="@+id/textView17"
+        android:fontFamily="sans-serif-thin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textSize="20dp"
         android:text="Account ID: P4356548"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,9 +77,11 @@
 
     <TextView
         android:id="@+id/textView18"
+        android:fontFamily="sans-serif-thin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:textSize="20dp"
         android:text="KYC Status: Incompelete"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,12 +93,13 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="106dp"
+        android:layout_height="62dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/white"
         android:text="Back"
         android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
