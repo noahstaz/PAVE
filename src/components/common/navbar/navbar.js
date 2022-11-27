@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useEffect, useState } from "react";
 import logo_black from "../../../assets/pave_logo_black.png";
 import logo_white from "../../../assets/pave_logo_white.png";
+import { Link } from "react-router-dom";
 
 function NavBar({ main, profile }) {
   const [showLogin, setShowLogin] = useState(localStorage.getItem("showLogin"));
@@ -30,12 +31,17 @@ function NavBar({ main, profile }) {
             className="d-inline-block align-top"
           />
         </Navbar.Brand>
-        {!main && (
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-          </Nav>
-        )}
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to="/#features">
+            Features
+          </Nav.Link>
+          <Nav.Link as={Link} to="/main">
+            Market
+          </Nav.Link>
+        </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse
           variant={main ? "dark" : "light"}
@@ -45,10 +51,10 @@ function NavBar({ main, profile }) {
           {!showLogin && (
             <>
               <Navbar.Text style={{ marginRight: "20px" }}>
-                <a href="/signin">Login</a>
+                <a href="#/signin">Login</a>
               </Navbar.Text>
               <Navbar.Text disable="true">
-                <a href="/signup" style={{ marginRight: "20px" }}>
+                <a href="#/signup" style={{ marginRight: "20px" }}>
                   Sign up
                 </a>
               </Navbar.Text>
@@ -56,7 +62,7 @@ function NavBar({ main, profile }) {
           )}
           {showLogin && <>{JSON.parse(localStorage.getItem("newUser")).name}</>}
           <Navbar.Text style={{ marginLeft: "20px" }}>
-            <a href="/verify">Verify</a>
+            <a href="#/verify">Verify</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
