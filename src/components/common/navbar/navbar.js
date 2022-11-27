@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 function NavBar({ main, profile }) {
   const [showLogin, setShowLogin] = useState(localStorage.getItem("showLogin"));
+  const [showVerify, setVerify] = useState(false);
+
   useEffect(() => {
     setShowLogin(localStorage.getItem("showLogin"));
   }, []);
@@ -41,6 +43,10 @@ function NavBar({ main, profile }) {
           <Nav.Link as={Link} to="/main">
             Market
           </Nav.Link>
+          {showLogin && <>
+              <Nav.Link as={Link} to="/wallet">Wallet</Nav.Link>
+          </>
+          }
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse
@@ -48,19 +54,17 @@ function NavBar({ main, profile }) {
           bg={main ? "dark" : "light"}
           className="justify-content-end"
         >
-          {!showLogin && (
-            <>
-              <Navbar.Text style={{ marginRight: "20px" }}>
-                <a href="#/signin">Login</a>
-              </Navbar.Text>
-              <Navbar.Text disable="true">
-                <a href="#/signup" style={{ marginRight: "20px" }}>
-                  Sign up
-                </a>
-              </Navbar.Text>
-            </>
-          )}
-          {showLogin && <>{JSON.parse(localStorage.getItem("newUser")).name}</>}
+          {!showLogin && <>
+            <Navbar.Text style={{ marginRight: "20px" }}>
+            <a href="/signin">Login</a>
+          </Navbar.Text>
+          <Navbar.Text disable="true">
+            <a href="/signup" style={{ marginRight: "20px" }}>Sign up</a>
+          </Navbar.Text>
+          </>
+          }
+          <Navbar.Text>
+          {showLogin && <>{JSON.parse(localStorage.getItem("newUser"))?.name}</>}</Navbar.Text>
           <Navbar.Text style={{ marginLeft: "20px" }}>
             <a href="#/verify">Verify</a>
           </Navbar.Text>

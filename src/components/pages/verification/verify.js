@@ -30,7 +30,7 @@ class Verify extends Component {
       message: `Success! Pending verification`,
       duration: 5
     });
-    this.timeout(30000)
+    this.timeout(300000)
     .then( ()=>{
       let temp = JSON.parse(localStorage.getItem('newUser'));
       temp.show=true;

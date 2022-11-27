@@ -11,13 +11,11 @@ function SignInForm() {
   const history=useHistory();
   const [email, setEmail]= useState('');
   const [password, setPassword]= useState('');
-  function handleChange(event) {
-    setEmail(event.target.value);
-  }
   function handleSubmit(event) {
     event.preventDefault();
-    localStorage.setItem('showLogin',true);
+    localStorage.setItem('showLogin',false);
     console.log("The form was submitted with the following data:");
+    console.log(localStorage.getItem("showLogin"));
     notification.info({
       message: `Logged in!`,
       duration: 1
@@ -37,7 +35,7 @@ function SignInForm() {
         <form className="formFields" onSubmit={handleSubmit}>
           <div className="formField">
             <label className="formFieldLabel" htmlFor="email">
-              E-Mail Address
+              Email Address
             </label>
             <input
               type="email"
@@ -45,8 +43,6 @@ function SignInForm() {
               className="formFieldInput"
               placeholder="Enter your email"
               name="email"
-              value={email}
-              onChange={handleChange}
             />
           </div>
 
@@ -60,15 +56,13 @@ function SignInForm() {
               className="formFieldInput"
               placeholder="Enter your password"
               name="password"
-              value={password}
-              onChange={handleChange}
             />
           </div>
 
           <div className="formField">
             <button className="formFieldButton">Sign In</button>
             { "   "}
-            <Link to="/sign-up" className="formFieldLink">
+            <Link to="/signup" className="formFieldLink">
               Create an account
             </Link>
           </div>
