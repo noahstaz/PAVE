@@ -25,7 +25,7 @@ const Flex = styled.div`
 
 export default function Features() {
   return (
-    <Flex>
+    <Flex id="#/features">
       <Container
         style={{
           backgroundColor: "black",
