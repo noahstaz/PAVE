@@ -149,16 +149,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-thin"
-        android:text="Current Balance: CAD$"
+        android:text="Balance: CAD$"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="80px"
+        android:textSize="90px"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.263"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
+        app:layout_constraintVertical_bias="0.367" />
 
     <TextView
         android:id="@+id/textView13"
@@ -191,5 +191,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="70dp"
+        android:layout_height="101dp"
+        app:srcCompat="@drawable/cad"
+        tools:layout_editor_absoluteX="279dp"
+        tools:layout_editor_absoluteY="218dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
