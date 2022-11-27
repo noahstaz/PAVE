@@ -2,7 +2,7 @@
   "name": "test-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://pave-p2p.tech/",
+  "homepage": "https://pave-p2p.tech/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
