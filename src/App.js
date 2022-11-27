@@ -8,7 +8,8 @@ import {
   Verify,
   SignInForm,
   SignUpForm,
-  Main,
+  MoneyManager,
+  Main
 } from "./components/pages";
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
           <Route path="/main" component={Main} />
           <Route path="/signin" component={SignInForm} />
           <Route path="/signup" component={SignUpForm} />
-
+          <Route path="/wallet" component={MoneyManager} />
           <Route path="/about" component={About} />
           <Route path="/service" component={Service} />
           <Route path="/team" component={Team} />

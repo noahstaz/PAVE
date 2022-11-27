@@ -7,6 +7,7 @@ import SignInForm from "./login/SignInForm";
 import SignUpForm from "./login/SignUpForm";
 import Verify from "./verification/verify";
 import Main from "./main/main";
+import MoneyManager from "./wallet/wallet";
 // import Login from "./login/login";
 
 export {
@@ -18,5 +19,6 @@ export {
   SignInForm,
   Verify,
   SignUpForm,
+  MoneyManager,
   Main,
 };
