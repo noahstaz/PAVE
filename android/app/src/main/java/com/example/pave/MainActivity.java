@@ -37,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 String uname = txtname.getText().toString();
                 String pass = passname.getText().toString();
                 String retrive =  sp.getString(uname, "");
-                Map<String, ?> x = sp.getAll();
-                Log.d("kir", String.valueOf(x.size()));
-                for(Map.Entry<String, ?> entry: x.entrySet()){
-                    Log.d("sag", (String) entry.getValue());
-                    Log.d("b", (String) entry.getKey());
-                }
 
                 if(retrive.equals(pass)) {
                     Intent myin = new Intent(MainActivity.this, EnteredPage.class);
