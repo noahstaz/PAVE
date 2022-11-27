@@ -90,6 +90,107 @@ const Main = () => {
     </>
   );
   // buyer = borrow, seller = lender
+  const highestBuy = buyerList[0][2];
+  const lowestSell = sellerList[0][2];
+
+  const addAmountBuyerList = (price, amount, list) => {
+    var isFound = false;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i][2] === parseFloat(price)) {
+        list[i][1] += parseInt(amount);
+        isFound = true;
+      }
+    }
+    if (!isFound) {
+      list.push([username, amount, price]);
+    }
+    setBuyerList(list.slice().sort((a, b) => b[2] - a[2]));
+  };
+  const addAmountSellerList = (price, amount, list) => {
+    var isFound = false;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i][2] === parseFloat(price)) {
+        list[i][1] += parseInt(amount);
+        isFound = true;
+      }
+    }
+    if (!isFound) {
+      list.push([username, amount, price]);
+    }
+    setSellerList(list.slice().sort((a, b) => a[2] - b[2]));
+  };
+
+  const eatUpHighestBuy = (price, amount, list) => {
+    amount = parseInt(amount);
+    price = parseFloat(price);
+    if (amount > list[0][1]) {
+      addAmountSellerList(price, amount - list[0][1], sellerList);
+      list.shift();
+      setBuyerList(list);
+    } else if (amount < list[0][1]) {
+      var isFound = false;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i][2] === parseFloat(price)) {
+          list[i][1] -= parseInt(amount);
+          isFound = true;
+        }
+      }
+      if (!isFound) {
+        list.push([username, amount, price]);
+      }
+      setBuyerList(list.slice().sort((a, b) => b[2] - a[2]));
+    } else if (amount === list[0][1]) {
+      list.shift();
+      setBuyerList(list);
+    }
+  };
+
+  const eatUpLowestSell = (price, amount, list) => {
+    amount = parseInt(amount);
+    price = parseFloat(price);
+    if (amount > list[0][1]) {
+      addAmountBuyerList(price, amount - list[0][1], buyerList);
+      list.shift();
+      setSellerList(list);
+    } else if (amount < list[0][1]) {
+      var isFound = false;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i][2] === parseFloat(price)) {
+          list[i][1] -= parseInt(amount);
+          isFound = true;
+        }
+      }
+      if (!isFound) {
+        list.push([username, amount, price]);
+      }
+      setBuyerList(list.slice().sort((a, b) => a[2] - b[2]));
+    } else if (amount === list[0][1]) {
+      list.shift();
+      setSellerList(list);
+    }
+  };
+
+  const handleLendNew = () => {
+    const newPrice = sellRateRef.current.value;
+    const newAmount = sellAmountRef.current.value;
+    const currentPrice = (sellerList[0][2] + buyerList[0][2]) / 2;
+    if (newPrice > highestBuy) {
+      addAmountSellerList(newPrice, newAmount, sellerList); // update CEprice if equal
+    } else if (parseFloat(newPrice) === parseFloat(highestBuy)) {
+      eatUpHighestBuy(newPrice, newAmount, buyerList); // update amount or eatup if 0
+    }
+  };
+
+  const handleBorrowNew = () => {
+    const newPrice = parseFloat(buyRateRef.current.value);
+    const newAmount = parseInt(buyAmountRef.current.value);
+    const currentPrice = (sellerList[0][2] + buyerList[0][2]) / 2;
+    if (newPrice < lowestSell) {
+      addAmountBuyerList(newPrice, newAmount, buyerList); // update CEprice if equal
+    } else if (parseFloat(newPrice) === parseFloat(lowestSell)) {
+      eatUpLowestSell(newPrice, newAmount, sellerList); // update amount or eatup if 0
+    }
+  };
 
   const handleLend = () => {
     const newPrice = sellRateRef.current.value;
@@ -131,13 +232,6 @@ const Main = () => {
     } else {
       setBuyerList(newBuyerList1);
     }
-
-    // const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
-    //   crossV2(buyerList, sellerList, 2, 1, 2, 1);
-    // setCEprice(CEprice);
-    // setBuyerList(newBuyerList);
-    // setSellerList(newSellerList);
-    // console.log(CEprice, newBuyerList, newSellerList, lendDone, borrowDone);
   };
 
   const handleTipsCalc = () => {
@@ -188,7 +282,7 @@ const Main = () => {
           <Col>Int. Rate (%)</Col>
           <Col>Amount ($)</Col>
         </Row>
-        {createTable(sellerList.reverse(), "red")}
+        {createTable(sellerList.slice().reverse(), "red")}
         <Row
           style={{
             borderBottom: "1px solid rgba(255,255,255,0.4)",
@@ -196,7 +290,7 @@ const Main = () => {
           }}
         >
           <Col style={{ textAlign: "left", fontSize: "18px", color: "white" }}>
-            {CErate} %
+            {((sellerList[0][2] + buyerList[0][2]) / 2).toFixed(2)} %
           </Col>
         </Row>
         {createTable(buyerList)}
@@ -275,7 +369,7 @@ const Main = () => {
                 {tipsSell[1]?.toFixed(3) ?? ""}
               </p>
               <div style={{ marginTop: "20px" }}>
-                <button className="sell" onClick={handleLend}>
+                <button className="sell" onClick={handleLendNew}>
                   Lend
                 </button>
               </div>
@@ -320,7 +414,7 @@ const Main = () => {
                 {tipsBuy[1]?.toFixed(3) ?? ""}
               </p>
               <div style={{ marginTop: "20px" }}>
-                <button className="buy" onClick={handleBorrow}>
+                <button className="buy" onClick={handleBorrowNew}>
                   Borrow
                 </button>
               </div>
