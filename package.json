@@ -17,6 +17,7 @@
     "react-native": "^0.70.6",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
+    "react-social-login-buttons": "^3.6.1",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
