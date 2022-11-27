@@ -3,25 +3,15 @@
   display: flex;
   color: white;
 }
+
 h1 {
-  background-color: #121115;
-  align-self: center;
-  margin-left: 1em;
-  margin-right: 1em;
+  background-color: #6b5b95;
 }
 .appAside {
   width: 50%;
   background-color: #6b5b95;
 }
-.logoVerify {
-  height:150px;
-}
-.ant-notification-center {
-  left: 50%;
-  bottom: 50% !important;
-  margin-right: 30%;
-  transform: translate(-50%, -50%);
-}
+
 .appForm {
   width: 50%;
   background-color: #12130f;
@@ -62,7 +52,7 @@ h1 {
 }
 
 .formCenter {
-  margin-top: 170px;
+  margin-bottom: 100px;
 }
 
 .formTitle {
@@ -80,14 +70,6 @@ h1 {
   padding-bottom: 5px;
 }
 
-.nextLink{
-  color: #707c8b;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2em;
-  margin: 0 10px;
-  padding-bottom: 5px;
-}
 .formTitleLink:first-child {
   margin-left: 0;
 }

@@ -2,8 +2,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../../assets/pave_logo_black.png";
-
+import { useEffect, useState } from "react";
 function NavBar() {
+  const [showLogin, setShowLogin] = useState(localStorage.getItem("showLogin"));
+  useEffect(() => {
+    setShowLogin(localStorage.getItem("showLogin"));
+  },[]);
+  console.log(showLogin);
   return (
     <Navbar style={{ padding: 0 }} fixed="top" bg="light" expand="lg">
       <Container>
@@ -23,11 +28,22 @@ function NavBar() {
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text style={{ marginRight: "20px" }}>
-            <a href="/">Login</a>
+          {!showLogin && <>
+            <Navbar.Text style={{ marginRight: "20px" }}>
+            <a href="/signin">Login</a>
           </Navbar.Text>
-          <Navbar.Text>
-            <a href="/">Sign up</a>
+          <Navbar.Text disable="true">
+            <a href="/signup" style={{ marginRight: "20px" }}>Sign up</a>
+          </Navbar.Text>
+          </>
+          }
+          {showLogin && <>
+            {JSON.parse(localStorage.getItem('newUser')).name}
+
+          </>
+          }             
+          <Navbar.Text style={{ marginLeft: "20px" }}>
+            <a href="/verify">Verify</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
