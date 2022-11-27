@@ -94,17 +94,18 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
-        android:layout_width="378dp"
-        android:layout_height="140dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="226dp"
+        android:layout_height="138dp"
         android:background="?attr/colorPrimary"
         android:backgroundTint="@color/dark"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.969" />
 
     <TextView
         android:id="@+id/textView11"
@@ -114,9 +115,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <TextView
         android:id="@+id/textView12"
@@ -161,5 +163,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.328"
         app:srcCompat="@drawable/cad" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="147dp"
+        android:layout_height="138dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/qr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
