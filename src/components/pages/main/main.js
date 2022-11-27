@@ -62,6 +62,8 @@ const Main = () => {
   const [CErate, setCErate] = useState(
     (buyerList[0][2] + sellerList[0][2]) / 2
   );
+  const [tipsBuy, setTipsBuy] = useState([]);
+  const [tipsSell, setTipsSell] = useState([]);
   const sellRateRef = useRef();
   const sellAmountRef = useRef();
   const buyRateRef = useRef();
@@ -138,6 +140,20 @@ const Main = () => {
     // console.log(CEprice, newBuyerList, newSellerList, lendDone, borrowDone);
   };
 
+  const handleTipsCalc = () => {
+    if (!!buyRateRef.current.value && !!buyAmountRef.current.value) {
+      const dailyRate = buyRateRef.current.value / 365;
+      const dailyCharges =
+        (buyRateRef.current.value / 100 / 365) * buyAmountRef.current.value;
+      setTipsBuy([dailyRate, dailyCharges]);
+    }
+    if (!!sellRateRef.current.value && !!sellAmountRef.current.value) {
+      const dailyRate = sellRateRef.current.value / 365;
+      const dailyCharges =
+        (sellRateRef.current.value / 100 / 365) * sellAmountRef.current.value;
+      setTipsSell([dailyRate, dailyCharges]);
+    }
+  };
   return (
     <React.Fragment>
       <NavBar main profile={{ name: "John Doe" }} />
@@ -196,64 +212,121 @@ const Main = () => {
           borderRadius: "20px",
           height: "80%",
           color: "white",
-          padding: "20px",
         }}
       >
-        <Row
-          style={{
-            borderBottom: "1px solid rgba(255,255,255,0.4)",
-            paddingBottom: "10px",
-          }}
+        <div
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
-          Limit | Market
-        </Row>
-        <Row
-          style={{
-            width: "96%",
-            position: "absolute",
-            bottom: 0,
-            height: "68%",
-            left: "24px",
-            paddingRight: "10px",
-          }}
-        >
-          <Col style={{ padding: 0 }}>
-            <Row>
+          <div
+            style={{
+              borderBottom: "1px solid rgba(255,255,255,0.4)",
+              padding: "15px",
+              paddingBottom: "10px",
+            }}
+          >
+            {" "}
+            Limit | Market
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <div
+              style={{
+                width: "50%",
+                display: "flex",
+                flexDirection: "column",
+                borderRight: "1px solid rgba(255,255,255,0.4)",
+              }}
+            >
               <input
-                style={{ width: "150px", marginRight: "20px" }}
+                style={{ marginBottom: "20px", marginTop: "20px" }}
                 type="text"
-                placeholder="interest rate"
+                placeholder="interest rate (%)"
                 ref={sellRateRef}
+                onChange={handleTipsCalc}
               />
-            </Row>
-            <Row>
-              <input type="text" placeholder="amount" ref={sellAmountRef} />
-            </Row>
-            <Row style={{ marginTop: "200px" }}>
-              <button className="sell" onClick={handleLend}>
-                Lend
-              </button>
-            </Row>
-          </Col>
-          <Col style={{ padding: 0 }}>
-            <Row>
               <input
-                style={{ width: "150px", marginLeft: "20px" }}
+                onChange={handleTipsCalc}
                 type="text"
-                placeholder="interest rate"
+                placeholder="amount ($)"
+                ref={sellAmountRef}
+              />
+              <p
+                style={{
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                  paddingTop: "20px",
+                }}
+              >
+                <b>Daily Int. Rate:</b>
+                {tipsSell[0]?.toFixed(3) ?? ""}
+              </p>
+              <p
+                style={{
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                }}
+              >
+                <b>Daily Profit:</b>
+                {tipsSell[1]?.toFixed(3) ?? ""}
+              </p>
+              <div style={{ marginTop: "20px" }}>
+                <button className="sell" onClick={handleLend}>
+                  Lend
+                </button>
+              </div>
+            </div>
+            <div
+              style={{
+                width: "50%",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <input
+                onChange={handleTipsCalc}
+                style={{ marginBottom: "20px", marginTop: "20px" }}
+                type="text"
+                placeholder="interest rate (%)"
                 ref={buyRateRef}
               />
-            </Row>
-            <Row>
-              <input type="text" placeholder="amount" ref={buyAmountRef} />
-            </Row>
-            <Row style={{ marginTop: "200px" }}>
-              <button className="buy" onClick={handleBorrow}>
-                Borrow
-              </button>
-            </Row>
-          </Col>
-        </Row>
+              <input
+                type="text"
+                placeholder="amount ($)"
+                ref={buyAmountRef}
+                onChange={handleTipsCalc}
+              />
+              <p
+                style={{
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                  paddingTop: "20px",
+                }}
+              >
+                <b>Daily Int. Rate:</b>
+                {tipsBuy[0]?.toFixed(3) ?? ""}
+              </p>
+              <p
+                style={{
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                }}
+              >
+                <b>Daily Charge:</b>
+                {tipsBuy[1]?.toFixed(3) ?? ""}
+              </p>
+              <div style={{ marginTop: "20px" }}>
+                <button className="buy" onClick={handleBorrow}>
+                  Borrow
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </Container>
 
       <Container
@@ -357,3 +430,61 @@ export default Main;
 //   );
 //   console.log("price range", priceRange);
 //   console.log("lowestBuy, highestSell ", lowestBuy, highestSell);
+
+{
+  /* <Row
+          style={{
+            borderBottom: "1px solid rgba(255,255,255,0.4)",
+            paddingBottom: "10px",
+          }}
+        >
+          Limit | Market
+        </Row>
+        <Row
+          style={{
+            width: "96%",
+            position: "absolute",
+            bottom: 0,
+            height: "68%",
+            left: "24px",
+            paddingRight: "10px",
+          }}
+        >
+          <Col style={{ padding: 0 }}>
+            <Row>
+              <input
+                style={{ width: "150px", marginRight: "20px" }}
+                type="text"
+                placeholder="interest rate"
+                ref={sellRateRef}
+              />
+            </Row>
+            <Row>
+              <input type="text" placeholder="amount" ref={sellAmountRef} />
+            </Row>
+            <Row style={{ marginTop: "200px" }}>
+              <button className="sell" onClick={handleLend}>
+                Lend
+              </button>
+            </Row>
+          </Col>
+          <Col style={{ padding: 0 }}>
+            <Row>
+              <input
+                style={{ width: "150px", marginLeft: "20px" }}
+                type="text"
+                placeholder="interest rate"
+                ref={buyRateRef}
+              />
+            </Row>
+            <Row>
+              <input type="text" placeholder="amount" ref={buyAmountRef} />
+            </Row>
+            <Row style={{ marginTop: "200px" }}>
+              <button className="buy" onClick={handleBorrow}>
+                Borrow
+              </button>
+            </Row>
+          </Col>
+        </Row> */
+}
