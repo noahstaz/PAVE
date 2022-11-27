@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.85f0c33b.css",
-    "main.js": "/static/js/main.c0e60297.js",
+    "main.css": "/static/css/main.0107bb72.css",
+    "main.js": "/static/js/main.61fea4e4.js",
     "static/js/787.a86f3764.chunk.js": "/static/js/787.a86f3764.chunk.js",
     "static/media/vscode1.png": "/static/media/vscode1.646e6af675679fc4fca3.png",
     "static/media/marketInterest.png": "/static/media/marketInterest.b23f2166e6a965569222.png",
@@ -10,18 +10,20 @@
     "static/media/autocredit.png": "/static/media/autocredit.7d3979edebb5bb00bdbc.png",
     "static/media/pave_writing.png": "/static/media/pave_writing.faeb32a2ce6b80c7c44d.png",
     "static/media/identityTheftProtection.png": "/static/media/identityTheftProtection.7e4a1419041f4a516400.png",
+    "static/media/pave_logo.jpg": "/static/media/pave_logo.53f4fdeecafc55dc90f3.jpg",
     "static/media/twilio.png": "/static/media/twilio.e7f6d6b3d5342d4be1cd.png",
     "static/media/pave_logo_black.png": "/static/media/pave_logo_black.88c6f8e06d2862f7b722.png",
     "static/media/noFees.png": "/static/media/noFees.954898683484ff462730.png",
+    "static/media/pave_logo_white.png": "/static/media/pave_logo_white.d5e030caa283def806eb.png",
     "static/media/github.png": "/static/media/github.69ffd9cd5a846c976177.png",
     "static/media/google-logo.webp": "/static/media/google-logo.e1cd350bfad85ea99c80.webp",
     "index.html": "/index.html",
-    "main.85f0c33b.css.map": "/static/css/main.85f0c33b.css.map",
-    "main.c0e60297.js.map": "/static/js/main.c0e60297.js.map",
+    "main.0107bb72.css.map": "/static/css/main.0107bb72.css.map",
+    "main.61fea4e4.js.map": "/static/js/main.61fea4e4.js.map",
     "787.a86f3764.chunk.js.map": "/static/js/787.a86f3764.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85f0c33b.css",
-    "static/js/main.c0e60297.js"
+    "static/css/main.0107bb72.css",
+    "static/js/main.61fea4e4.js"
   ]
 }
