@@ -22,6 +22,7 @@ public class AccountPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myin = new Intent(AccountPage.this, EnteredPage.class);
+                myin.putExtra("EXTRA_SESSION_ID", uname);
                 startActivity(myin);
             }
         });

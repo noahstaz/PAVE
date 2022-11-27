@@ -32,15 +32,18 @@ public class EnteredPage extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EnteredPage.this, LendingPage.class));
-
+                Intent intent = new Intent(EnteredPage.this, LendingPage.class);
+                intent.putExtra("EXTRA_SESSION_ID", uname);
+                startActivity(intent);
             }
         });
         Button btn3 = (Button) findViewById(R.id.button6);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EnteredPage.this, MovePage.class));
+                Intent intent = new Intent(EnteredPage.this, MovePage.class);
+                intent.putExtra("EXTRA_SESSION_ID", uname);
+                startActivity(intent);
 
             }
         });
@@ -49,6 +52,9 @@ public class EnteredPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EnteredPage.this, ReqPage.class));
+                Intent intent = new Intent(EnteredPage.this, ReqPage.class);
+                intent.putExtra("EXTRA_SESSION_ID", uname);
+                startActivity(intent);
 
             }
         });

@@ -13,11 +13,13 @@ public class MovePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.move_page);
+        String uname = getIntent().getStringExtra("EXTRA_SESSION_ID");
         Button bck = (Button) findViewById(R.id.button12);
         bck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myin = new Intent(MovePage.this, EnteredPage.class);
+                myin.putExtra("EXTRA_SESSION_ID", uname);
                 startActivity(myin);
             }
         });
