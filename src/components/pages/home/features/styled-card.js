@@ -32,23 +32,5 @@ export default function StyledCard({ imgSrc, title, text }) {
       <h3 style={{ marginBottom: "7px" }}>{title}</h3>
       <p style={{ fontSize: "12" }}>{text}</p>
     </Container>
-    // <Card
-    //   className="black"
-    //   style={{
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     textAlign: "center",
-    //     height: "100%",
-    //   }}
-    //   bg="dark"
-    //   text="white"
-    // >
-    //   <Card.Body>
-    //     <Card.Img variant="top" src={imgSrc} />
-    //     <Card.Title>{title}</Card.Title>
-    //     <Card.Text>{text}</Card.Text>
-    //   </Card.Body>
-    // </Card>
   );
 }

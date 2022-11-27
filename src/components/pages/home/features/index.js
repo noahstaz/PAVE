@@ -19,15 +19,15 @@ const Col = styled(BaseCol)`
 export default function Features() {
   return (
     <Container>
-      <Row style={{ borderBottom: "1px solid white" }}>
-        <Col style={{ borderRight: "1px solid white" }}>
+      <Row style={{ borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
+        <Col style={{ borderRight: "1px solid rgba(255,255,255,0.4)" }}>
           <StyledCard
             title="Auto Lending"
             text="Our P2P lending system automatically lends the money that you deposited to other clients using the market interest rate and generate returns for you."
             imgSrc={lending}
           />
         </Col>
-        <Col style={{ borderRight: "1px solid white" }}>
+        <Col style={{ borderRight: "1px solid rgba(255,255,255,0.4)" }}>
           <StyledCard
             title="Auto Credit Limit Assignment"
             text="As soon as you lend your deposit using our P2P Lending system, we assign you with a credit limit equal to what you lent, which means that you can continue to spend the money you have while your money is working for your and generating interest income."
@@ -43,14 +43,14 @@ export default function Features() {
         </Col>
       </Row>
       <Row>
-        <Col style={{ borderRight: "1px solid white" }}>
+        <Col style={{ borderRight: "1px solid rgba(255,255,255,0.4)" }}>
           <StyledCard
             title="Market Interest Rate and Limit Orders"
             text="Our interest rates will be totally determined by demand and supply mechanism. If you don’t want to use auto-lending feature, you can always give Limit Orders and lend your money for the interest rate you choose."
             imgSrc={marketInterest}
           />
         </Col>
-        <Col style={{ borderRight: "1px solid white" }}>
+        <Col style={{ borderRight: "1px solid rgba(255,255,255,0.4)" }}>
           <StyledCard
             title="No Fees"
             text="You will never pay credit card surcharge fees, transfer fees, and withdrawal fees. We prioritize you."
