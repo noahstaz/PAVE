@@ -40,6 +40,26 @@
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".AccountPage"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".LendingPage"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".MovePage"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".ReqPage"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>
