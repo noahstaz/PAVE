@@ -196,8 +196,12 @@
         android:id="@+id/imageView7"
         android:layout_width="70dp"
         android:layout_height="101dp"
-        app:srcCompat="@drawable/cad"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.346"
+        app:srcCompat="@drawable/cad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
