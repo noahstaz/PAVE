@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# PAVE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pave is a visionary startup that aims to make peer-to-peer digital banking possible and change the banking industry once and for all. Banks use our money to make money for themselves by giving loans, charging interest rates,  imposing various fees, and funding their capital markets services. Being aware of all the positive benefits that incentivize people to use banks to secure their money,  we are asking why not make it better for people. 
 
-## Available Scripts
+PAVE will be a mobile application and a website that provides peer-to-peer digital banking services with a client-centric approach. Customers will be able to earn interest income made when their money is used by our system to lend. Our clients will be using PAVE online payment systems, which will create the foundation for our peer-to-peer banking system.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [PAVE](#id-section1)
+2. [Landing Page](#id-section2)
+3. [Signup-Login](#id-section3)
+4. [KYC](#id-section4)
+5. [Main](#id-section5)
+6. [Market-Pricing and P2P Lending](#id-section6)
+7. [My Wallet](#id-section7)
+8. [Payments and Money Transfers](#id-section8)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### How to Run
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Go to link: http://pave-p2p.tech
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How to Use the Project
 
-### `npm run build`
+The project can be use to build:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Digital Banking apps
+* Market-pricing tests
+* Virtual money transfer tests
+* Buy-Sell Trading algorithm tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Credits
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Coded by Karel, Berat, Noah, Kiamehr and Kevin.
 
-### `npm run eject`
+### License
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The MIT License (MIT) Copyright (c) 2022, PAVE Team
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
