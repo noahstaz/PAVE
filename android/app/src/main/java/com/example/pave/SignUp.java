@@ -19,7 +19,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         Button sup = (Button) findViewById(R.id.button4);
         EditText txtname = findViewById(R.id.editTextTextEmailAddress);
         EditText txtname2 = findViewById(R.id.editTextTextEmailAddress3);
@@ -34,9 +34,13 @@ public class SignUp extends AppCompatActivity {
                 String pass1 = passname.getText().toString();
                 String pass2 = passname2.getText().toString();
                 if(email1.equals(email2) && pass1.equals(pass2)){
-                    if(sp.getString(email1, "") == null)
-                    editor.putString(email1, pass1);
-                    startActivity(new Intent(SignUp.this, MainActivity.class));
+                    if(sp.getString(email1, "").equals("")) {
+                        editor.putString(email1, pass1);
+                        editor.commit();
+                        editor.apply();
+                        startActivity(new Intent(SignUp.this, MainActivity.class));
+                    }
+
                 }
                 else{
                     if(!email1.equals(email2)){
