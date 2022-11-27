@@ -45,7 +45,7 @@ const Card = ({ imgSrc, altText }) => (
 
 const PoweredBy = () => {
   return (
-    <Container id="poweredBy">
+    <Container id="poweredBy" style={{ backgroundColor: "black" }}>
       <h1 style={{ fontSize: 18, color: "white", marginBottom: "10px" }}>
         Powered by:
       </h1>

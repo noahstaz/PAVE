@@ -15,8 +15,15 @@ const Container = styled.div`
 
 export default function Services() {
   return (
-    <Container id="poweredBy">
-      <h1 style={{ fontSize: 18, color: "white", marginBottom: "10px" }}>
+    <Container id="services" style={{ backgroundColor: "black" }}>
+      <h1
+        style={{
+          fontSize: 18,
+          color: "white",
+          marginBottom: "10px",
+          backgroundColor: "black",
+        }}
+      >
         What we offer?
       </h1>
       <p>
