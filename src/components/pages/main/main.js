@@ -62,10 +62,12 @@ const Main = () => {
   const [CErate, setCErate] = useState(
     (buyerList[0][2] + sellerList[0][2]) / 2
   );
-  const userRef = useRef();
-  const rateRef = useRef();
-  const amountRef = useRef();
-  const typeRef = useRef();
+  const sellRateRef = useRef();
+  const sellAmountRef = useRef();
+  const buyRateRef = useRef();
+  const buyAmountRef = useRef();
+
+  const username = "jack";
 
   useEffect(() => {
     const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
@@ -87,44 +89,45 @@ const Main = () => {
   );
   // buyer = borrow, seller = lender
 
-  const handleUpdate = () => {
-    const newPrice = rateRef.current.value;
-    const newAmount = amountRef.current.value;
-    if (typeRef.current.value === "buy") {
-      var newBuyerList1 = [
-        ...buyerList,
-        [userRef.current.value, parseFloat(newAmount), parseFloat(newPrice)],
-      ];
-      newBuyerList1.sort((a, b) => b[2] - a[2]);
-      console.log("newSellerlist", sellerList);
-      console.log("newBuyerlist", newBuyerList1);
-      const res = crossV2(newBuyerList1, sellerList, 2, 1, 2, 1);
-      const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
-        res || {};
-      if (!!CEprice && !!newBuyerList && !!newSellerList) {
-        if (CErate !== CEprice) setCErate(CEprice);
-        if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
-        if (sellerList !== newSellerList) setSellerList(newSellerList);
-      } else {
-        setBuyerList(newBuyerList1);
-      }
-    } else if (typeRef.current.value === "sell") {
-      var newSellerList1 = [
-        ...sellerList,
-        [userRef.current.value, parseFloat(newAmount), parseFloat(newPrice)],
-      ];
-      newSellerList1.sort((a, b) => b[2] - a[2]);
-      console.log("newSellerlist", newSellerList1);
-      console.log("newBuyerlist", buyerList);
-      const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
-        crossV2(buyerList, newSellerList1, 2, 1, 2, 1) || {};
-      if (!!CEprice && !!newBuyerList && !!newSellerList) {
-        if (CErate !== CEprice) setCErate(CEprice);
-        if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
-        if (sellerList !== newSellerList) setSellerList(newSellerList);
-      } else {
-        setSellerList(newSellerList1);
-      }
+  const handleLend = () => {
+    const newPrice = sellRateRef.current.value;
+    const newAmount = sellAmountRef.current.value;
+    var newSellerList1 = [
+      ...sellerList,
+      [username, parseFloat(newAmount), parseFloat(newPrice)],
+    ];
+    newSellerList1.sort((a, b) => b[2] - a[2]);
+    console.log("newSellerlist", newSellerList1);
+    console.log("newBuyerlist", buyerList);
+    const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
+      crossV2(buyerList, newSellerList1, 2, 1, 2, 1) || {};
+    if (!!CEprice && !!newBuyerList && !!newSellerList) {
+      if (CErate !== CEprice) setCErate(CEprice);
+      if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
+      if (sellerList !== newSellerList) setSellerList(newSellerList);
+    } else {
+      setSellerList(newSellerList1);
+    }
+  };
+  const handleBorrow = () => {
+    const newPrice = buyRateRef.current.value;
+    const newAmount = buyAmountRef.current.value;
+    var newBuyerList1 = [
+      ...buyerList,
+      [username, parseFloat(newAmount), parseFloat(newPrice)],
+    ];
+    newBuyerList1.sort((a, b) => b[2] - a[2]);
+    console.log("newSellerlist", sellerList);
+    console.log("newBuyerlist", newBuyerList1);
+    const res = crossV2(newBuyerList1, sellerList, 2, 1, 2, 1);
+    const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
+      res || {};
+    if (!!CEprice && !!newBuyerList && !!newSellerList) {
+      if (CErate !== CEprice) setCErate(CEprice);
+      if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
+      if (sellerList !== newSellerList) setSellerList(newSellerList);
+    } else {
+      setBuyerList(newBuyerList1);
     }
 
     // const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
@@ -220,14 +223,14 @@ const Main = () => {
                 style={{ width: "150px", marginRight: "20px" }}
                 type="text"
                 placeholder="interest rate"
-                ref={rateRef}
+                ref={sellRateRef}
               />
             </Row>
             <Row>
-              <input type="text" placeholder="amount" ref={amountRef} />
+              <input type="text" placeholder="amount" ref={sellAmountRef} />
             </Row>
             <Row style={{ marginTop: "200px" }}>
-              <button className="sell" onClick={handleUpdate}>
+              <button className="sell" onClick={handleLend}>
                 Lend
               </button>
             </Row>
@@ -238,14 +241,14 @@ const Main = () => {
                 style={{ width: "150px", marginLeft: "20px" }}
                 type="text"
                 placeholder="interest rate"
-                ref={rateRef}
+                ref={buyRateRef}
               />
             </Row>
             <Row>
-              <input type="text" placeholder="amount" ref={amountRef} />
+              <input type="text" placeholder="amount" ref={buyAmountRef} />
             </Row>
             <Row style={{ marginTop: "200px" }}>
-              <button className="buy" onClick={handleUpdate}>
+              <button className="buy" onClick={handleBorrow}>
                 Borrow
               </button>
             </Row>
