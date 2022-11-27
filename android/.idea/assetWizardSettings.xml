@@ -80,6 +80,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="imagePath" value="C:\Users\NoahS\OneDrive\Desktop\PAVE\android\app\src\main\res\drawable\img.png" />
+                                                <entry key="scalingPercent" value="55" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -119,7 +121,6 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="000000" />
-                                      <entry key="foregroundAssetType" value="TEXT" />
                                     </map>
                                   </option>
                                 </PersistentState>
