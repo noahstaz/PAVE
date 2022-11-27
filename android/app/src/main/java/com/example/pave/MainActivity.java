@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.FileNotFoundException;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,12 +27,23 @@ public class MainActivity extends AppCompatActivity {
         Button sup = (Button) findViewById(R.id.button2);
         EditText txtname = findViewById(R.id.editTextTextEmailAddress2);
         EditText passname = findViewById(R.id.editTextTextPassword);
+        ///
+
+
+        ///
         sin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String uname = txtname.getText().toString();
                 String pass = passname.getText().toString();
-                String retrive = sp.getString(uname, "");
+                String retrive =  sp.getString(uname, "");
+                Map<String, ?> x = sp.getAll();
+                Log.d("kir", String.valueOf(x.size()));
+                for(Map.Entry<String, ?> entry: x.entrySet()){
+                    Log.d("sag", (String) entry.getValue());
+                    Log.d("b", (String) entry.getKey());
+                }
+
                 if(retrive.equals(pass)) {
                     Intent myin = new Intent(MainActivity.this, EnteredPage.class);
                     myin.putExtra("EXTRA_SESSION_ID", uname);
