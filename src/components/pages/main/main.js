@@ -64,6 +64,9 @@ const Main = () => {
   );
   const [tipsBuy, setTipsBuy] = useState([]);
   const [tipsSell, setTipsSell] = useState([]);
+  const [lending, setLending] = useState(0);
+  const [creditLimit, setCreditLimit] = useState(0);
+  const [balance, setBalance] = useState(8200);
   const sellRateRef = useRef();
   const sellAmountRef = useRef();
   const buyRateRef = useRef();
@@ -174,10 +177,13 @@ const Main = () => {
     const newPrice = sellRateRef.current.value;
     const newAmount = sellAmountRef.current.value;
     const currentPrice = (sellerList[0][2] + buyerList[0][2]) / 2;
+    if (parseInt(newAmount) > balance) return;
     if (newPrice > highestBuy) {
       addAmountSellerList(newPrice, newAmount, sellerList); // update CEprice if equal
     } else if (parseFloat(newPrice) === parseFloat(highestBuy)) {
       eatUpHighestBuy(newPrice, newAmount, buyerList); // update amount or eatup if 0
+      setLending((prev) => prev + parseInt(newAmount));
+      setBalance((prev) => prev - parseInt(newAmount));
     }
   };
 
@@ -185,52 +191,12 @@ const Main = () => {
     const newPrice = parseFloat(buyRateRef.current.value);
     const newAmount = parseInt(buyAmountRef.current.value);
     const currentPrice = (sellerList[0][2] + buyerList[0][2]) / 2;
+    if (newAmount > balance) return;
     if (newPrice < lowestSell) {
       addAmountBuyerList(newPrice, newAmount, buyerList); // update CEprice if equal
     } else if (parseFloat(newPrice) === parseFloat(lowestSell)) {
       eatUpLowestSell(newPrice, newAmount, sellerList); // update amount or eatup if 0
-    }
-  };
-
-  const handleLend = () => {
-    const newPrice = sellRateRef.current.value;
-    const newAmount = sellAmountRef.current.value;
-    var newSellerList1 = [
-      ...sellerList,
-      [username, parseFloat(newAmount), parseFloat(newPrice)],
-    ];
-    newSellerList1.sort((a, b) => b[2] - a[2]);
-    console.log("newSellerlist", newSellerList1);
-    console.log("newBuyerlist", buyerList);
-    const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
-      crossV2(buyerList, newSellerList1, 2, 1, 2, 1) || {};
-    if (!!CEprice && !!newBuyerList && !!newSellerList) {
-      if (CErate !== CEprice) setCErate(CEprice);
-      if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
-      if (sellerList !== newSellerList) setSellerList(newSellerList);
-    } else {
-      setSellerList(newSellerList1);
-    }
-  };
-  const handleBorrow = () => {
-    const newPrice = buyRateRef.current.value;
-    const newAmount = buyAmountRef.current.value;
-    var newBuyerList1 = [
-      ...buyerList,
-      [username, parseFloat(newAmount), parseFloat(newPrice)],
-    ];
-    newBuyerList1.sort((a, b) => b[2] - a[2]);
-    console.log("newSellerlist", sellerList);
-    console.log("newBuyerlist", newBuyerList1);
-    const res = crossV2(newBuyerList1, sellerList, 2, 1, 2, 1);
-    const { CEprice, newBuyerList, newSellerList, lendDone, borrowDone } =
-      res || {};
-    if (!!CEprice && !!newBuyerList && !!newSellerList) {
-      if (CErate !== CEprice) setCErate(CEprice);
-      if (newBuyerList !== buyerList) setBuyerList(newBuyerList);
-      if (sellerList !== newSellerList) setSellerList(newSellerList);
-    } else {
-      setBuyerList(newBuyerList1);
+      setCreditLimit((prev) => prev + parseInt(newAmount));
     }
   };
 
@@ -356,7 +322,7 @@ const Main = () => {
                   paddingTop: "20px",
                 }}
               >
-                <b>Daily Int. Rate:</b>
+                <b>Daily Int. Rate(%):</b>
                 {tipsSell[0]?.toFixed(3) ?? ""}
               </p>
               <p
@@ -365,7 +331,7 @@ const Main = () => {
                   paddingRight: "5px",
                 }}
               >
-                <b>Daily Profit:</b>
+                <b>Daily Profit($):</b>
                 {tipsSell[1]?.toFixed(3) ?? ""}
               </p>
               <div style={{ marginTop: "20px" }}>
@@ -401,7 +367,7 @@ const Main = () => {
                   paddingTop: "20px",
                 }}
               >
-                <b>Daily Int. Rate:</b>
+                <b>Daily Int. Rate(%):</b>
                 {tipsBuy[0]?.toFixed(3) ?? ""}
               </p>
               <p
@@ -410,7 +376,7 @@ const Main = () => {
                   paddingRight: "5px",
                 }}
               >
-                <b>Daily Charge:</b>
+                <b>Daily Charge($):</b>
                 {tipsBuy[1]?.toFixed(3) ?? ""}
               </p>
               <div style={{ marginTop: "20px" }}>
@@ -452,8 +418,7 @@ const Main = () => {
             borderBottom: "1px solid rgba(255,255,255,0.4)",
           }}
         >
-          <Row>2086$ arrowUpIcon</Row>
-          <Row>+86$ interest earned last month</Row>
+          <Row>Balance: {balance}$</Row>
         </Row>
         <Row
           style={{
@@ -463,7 +428,7 @@ const Main = () => {
           }}
         >
           <Row>Lending</Row>
-          <Row>2000$</Row>
+          <Row>{lending}$</Row>
         </Row>{" "}
         <Row
           style={{
@@ -473,14 +438,14 @@ const Main = () => {
           }}
         >
           <Row>Credit limit</Row>
-          <Row>2000$</Row>
+          <Row>{creditLimit}$</Row>
         </Row>{" "}
         <Row
           style={{
             paddingTop: "15px",
           }}
         >
-          Auto-loan CheckMark
+          Auto-loan: true
         </Row>
       </Container>
 
