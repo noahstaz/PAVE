@@ -4,17 +4,6 @@ Pave is a visionary startup that aims to make peer-to-peer digital banking possi
 
 PAVE will be a mobile application and a website that provides peer-to-peer digital banking services with a client-centric approach. Customers will be able to earn interest income made when their money is used by our system to lend. Our clients will be using PAVE online payment systems, which will create the foundation for our peer-to-peer banking system.
 
-## Table of Contents
-
-1. [PAVE](#id-section1)
-2. [Landing Page](#id-section2)
-3. [Signup-Login](#id-section3)
-4. [KYC](#id-section4)
-5. [Main](#id-section5)
-6. [Market-Pricing and P2P Lending](#id-section6)
-7. [My Wallet](#id-section7)
-8. [Payments and Money Transfers](#id-section8)
-
 ## Inspiration
 
 Banks use our money to make money for themselves by giving loans, charging interest rates,  imposing various fees, and funding their capital markets services. Being aware of all the positive benefits that incentivize people to use banks to secure their money,  we are asking why not make it better for people. 
