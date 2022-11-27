@@ -10,10 +10,11 @@
         android:id="@+id/imageView"
         android:layout_width="249dp"
         android:layout_height="65dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106"
         app:srcCompat="@drawable/img_2" />
 
     <EditText
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="200dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textEmailAddress"
@@ -156,23 +157,27 @@
         android:id="@+id/textView12"
         android:layout_width="59dp"
         android:layout_height="19dp"
-        android:layout_marginStart="208dp"
-        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:text="@string/hyperlink"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="189dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="178dp"
+        android:layout_height="16dp"
         android:text="Compelete your KYC on our"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
