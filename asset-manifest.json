@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0107bb72.css",
-    "main.js": "/static/js/main.61fea4e4.js",
+    "main.js": "/static/js/main.7f715b53.js",
     "static/js/787.a86f3764.chunk.js": "/static/js/787.a86f3764.chunk.js",
     "static/media/vscode1.png": "/static/media/vscode1.646e6af675679fc4fca3.png",
     "static/media/marketInterest.png": "/static/media/marketInterest.b23f2166e6a965569222.png",
@@ -19,11 +19,11 @@
     "static/media/google-logo.webp": "/static/media/google-logo.e1cd350bfad85ea99c80.webp",
     "index.html": "/index.html",
     "main.0107bb72.css.map": "/static/css/main.0107bb72.css.map",
-    "main.61fea4e4.js.map": "/static/js/main.61fea4e4.js.map",
+    "main.7f715b53.js.map": "/static/js/main.7f715b53.js.map",
     "787.a86f3764.chunk.js.map": "/static/js/787.a86f3764.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0107bb72.css",
-    "static/js/main.61fea4e4.js"
+    "static/js/main.7f715b53.js"
   ]
 }
